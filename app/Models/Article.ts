@@ -13,7 +13,7 @@ export default class Article extends BaseModel {
   public content: string
 
   @column()
-  public ownerId: string
+  public ownerId: number
 
   @hasOne(() => User)
   public owner: HasOne<typeof User>
