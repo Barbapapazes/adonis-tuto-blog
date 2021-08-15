@@ -7,7 +7,7 @@ export default class Articles extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
       table.string('title').notNullable().unique()
-      table.string('content').notNullable()
+      table.string('content', 1024).notNullable()
       table.integer('owner_id').references('id').inTable('users')
 
       table.timestamp('created_at', { useTz: true })
