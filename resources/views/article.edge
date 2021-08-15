@@ -14,5 +14,9 @@
       <p>{{ article.content }}</p>
       <div>par <strong> {{article.owner.pseudo}} </strong> le {{ article.createdAt }}</div>
     </section>
+
+    @if(auth.isLoggedIn)
+    <a href="{{ route('ArticlesController.edit', {id: article.id}) }}">Editer l'article</a>
+    @endif
   </body>
 </html>

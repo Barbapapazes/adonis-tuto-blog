@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Créer un article</title>
+</head>
+<body>
+  <form action="{{ route('ArticlesController.update', {id: article.id}) }}?_method=put" method="post">
+    <div>
+      <label for="title">Titre de l'article</label>
+      <input type="text" name="title" id="title" value="{{ flashMessages.get('title', article.title) }}">
+      @if(flashMessages.has('errors.title'))
+      <div>{{ flashMessages.get('errors.title') }}</div>
+      @endif
+    </div>
+    <div>
+      <label for="content">Contenu de l'article</label>
+      <textarea name="content" id="content" cols="30" rows="10">{{ flashMessages.get('content', article.content) }}</textarea>
+      @if(flashMessages.has('errors.content'))
+      <div>{{ flashMessages.get('errors.content') }}</div>
+      @endif
+    </div>
+    <button type="submit">Modifier</button>
+  </form>
+</body>
+</html>
+
