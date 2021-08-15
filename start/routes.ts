@@ -28,3 +28,10 @@ Route.post('/auth/login', 'AuthController.login')
 Route.get('/login', async ({ view }) => {
   return view.render('login')
 })
+
+Route.resource('articles', 'ArticlesController').middleware({
+  create: ['auth'],
+  store: ['auth'],
+  edit: ['auth'],
+  update: ['auth'],
+})
