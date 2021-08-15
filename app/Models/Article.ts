@@ -15,7 +15,7 @@ export default class Article extends BaseModel {
   @column()
   public ownerId: number
 
-  @hasOne(() => User)
+  @hasOne(() => User, { localKey: 'ownerId', foreignKey: 'id' })
   public owner: HasOne<typeof User>
 
   @column.dateTime({ autoCreate: true })

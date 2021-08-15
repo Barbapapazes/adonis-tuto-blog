@@ -13,4 +13,21 @@ export default class ArticlesController {
       articles,
     })
   }
+
+  public async show({ view, params }: HttpContextContract) {
+    const { id } = params
+
+    let article: Article
+    try {
+      article = await Article.findOrFail(id)
+      await article.load('owner')
+    } catch (error) {
+      console.error(error)
+      return view.render('errors/not-found')
+    }
+
+    return view.render('article', {
+      article,
+    })
+  }
 }
