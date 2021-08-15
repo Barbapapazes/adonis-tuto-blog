@@ -8,6 +8,9 @@
 </head>
 <body>
   <h1>Les articles</h1>
+  @if(auth.isLoggedIn)
+    <a href="{{ route('ArticlesController.create') }}">Créer un article</a>
+  @endif
   <section>
     @each(article in articles)
     <article>
