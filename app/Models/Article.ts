@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, computed, HasOne, hasOne } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, HasOne, hasOne } from '@ioc:Adonis/Lucid/Orm'
 import User from './User'
 
 export default class Article extends BaseModel {
@@ -18,7 +18,9 @@ export default class Article extends BaseModel {
   @hasOne(() => User, { localKey: 'ownerId', foreignKey: 'id' })
   public owner: HasOne<typeof User>
 
-  @column.dateTime({ autoCreate: true })
+  @column.dateTime({
+    autoCreate: true,
+  })
   public createdAt: DateTime
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })

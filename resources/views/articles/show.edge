@@ -12,7 +12,7 @@
     <section>
       <h1>{{ article.title }}</h1>
       <p>{{ article.content }}</p>
-      <div>par <strong> {{article.owner.pseudo}} </strong> le {{ article.createdAt }}</div>
+      <div>par <strong> {{article.owner.pseudo}} </strong> le {{ article.createdAt.toLocaleString({ locale: 'fr-FR'}) }}, mis à jour le {{ article.updatedAt.toLocaleString({ locale: 'fr-FR'}) }}</div>
     </section>
 
     @if(auth.isLoggedIn)

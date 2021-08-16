@@ -26,7 +26,6 @@ export default class ArticlesController {
       console.error(error)
       return view.render('errors/not-found')
     }
-
     return view.render('articles/show', {
       article,
     })
