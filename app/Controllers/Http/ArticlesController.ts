@@ -10,7 +10,7 @@ export default class ArticlesController {
 
     articles.baseUrl('/articles')
 
-    return view.render('articles', {
+    return view.render('articles/index', {
       articles,
     })
   }
@@ -27,13 +27,13 @@ export default class ArticlesController {
       return view.render('errors/not-found')
     }
 
-    return view.render('article', {
+    return view.render('articles/show', {
       article,
     })
   }
 
   public async create({ view }: HttpContextContract) {
-    return view.render('create')
+    return view.render('articles/create')
   }
 
   public async store({ request, view, auth }: HttpContextContract) {
@@ -48,7 +48,7 @@ export default class ArticlesController {
 
     await article.load('owner')
 
-    return view.render('article', {
+    return view.render('articles/show', {
       article,
     })
   }
@@ -64,7 +64,7 @@ export default class ArticlesController {
       return view.render('errors/not-found')
     }
 
-    return view.render('edit', {
+    return view.render('articles/edit', {
       article,
     })
   }
@@ -88,7 +88,7 @@ export default class ArticlesController {
     await article.save()
     await article.load('owner')
 
-    return view.render('article', {
+    return view.render('articles/show', {
       article,
     })
   }
