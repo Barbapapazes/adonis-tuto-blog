@@ -6,7 +6,7 @@ export default class ArticlesController {
   public async index({ request, view }: HttpContextContract) {
     const page = request.input('page', 1)
 
-    const articles = await Article.query().paginate(page, 3)
+    const articles = await Article.query().orderBy('created_at', 'desc').paginate(page, 3)
 
     articles.baseUrl('/articles')
 
