@@ -20,8 +20,8 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.get('/', async ({ view }) => {
-  return view.render('welcome')
+Route.get('/', async ({ response }) => {
+  return response.redirect('/articles')
 })
 
 Route.post('/auth/login', 'AuthController.login')
