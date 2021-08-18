@@ -10,7 +10,7 @@ export default class LoginController {
     const { pseudo, password } = await request.validate(LoginValidator)
 
     try {
-      await auth.use('web').attempt(pseudo, password)
+      await auth.attempt(pseudo, password)
       response.redirect('/articles')
     } catch (error) {
       session.flash('auth', 'Authentication impossible')

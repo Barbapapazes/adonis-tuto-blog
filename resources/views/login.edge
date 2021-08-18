@@ -24,7 +24,7 @@
     </div>
     <button type="submit">Se connecter</button>
     @if(flashMessages.has('auth'))
-      <div>{{ flashMessages.get('auth').error }}</div>
+      <div>{{ flashMessages.get('auth') }}</div>
     @endif
   </form>
 </body>
