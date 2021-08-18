@@ -7,7 +7,7 @@
   <title>Login</title>
 </head>
 <body>
-  <form action="{{ route('AuthController.login') }}" method="post">
+  <form action="{{ route('LoginController.store') }}" method="post">
     <div>
       <label for="pseudo">Votre pseudo</label>
       <input type="text" name="pseudo" id="pseudo" value="{{ flashMessages.get('pseudo', '') }}">

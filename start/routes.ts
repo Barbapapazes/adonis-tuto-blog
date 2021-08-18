@@ -24,10 +24,8 @@ Route.get('/', async ({ response }) => {
   return response.redirect('/articles')
 })
 
-Route.post('/auth/login', 'AuthController.login')
-Route.get('/login', async ({ view }) => {
-  return view.render('login')
-})
+Route.get('login', 'LoginController.create')
+Route.post('login', 'LoginController.store')
 
 Route.resource('articles', 'ArticlesController').middleware({
   create: ['auth'],
