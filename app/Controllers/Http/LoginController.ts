@@ -13,7 +13,7 @@ export default class LoginController {
       await auth.attempt(pseudo, password)
       response.redirect('/articles')
     } catch (error) {
-      session.flash('auth', 'Authentication impossible')
+      session.flash('auth', 'Authentification impossible')
       response.redirect().back()
     }
   }

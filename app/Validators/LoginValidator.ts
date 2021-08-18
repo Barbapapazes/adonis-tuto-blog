@@ -25,7 +25,7 @@ export default class LoginValidator {
    */
   public schema = schema.create({
     pseudo: schema.string({ trim: true }, [rules.exists({ table: 'users', column: 'pseudo' })]),
-    password: schema.string({}, []),
+    password: schema.string(),
   })
 
   /**
