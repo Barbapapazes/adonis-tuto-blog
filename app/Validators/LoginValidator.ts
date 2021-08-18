@@ -24,11 +24,8 @@ export default class LoginValidator {
    *    ```
    */
   public schema = schema.create({
-    pseudo: schema.string({ trim: true }, [
-      rules.required(),
-      rules.exists({ table: 'users', column: 'pseudo' }),
-    ]),
-    password: schema.string({}, [rules.required()]),
+    pseudo: schema.string({ trim: true }, [rules.exists({ table: 'users', column: 'pseudo' })]),
+    password: schema.string({}, []),
   })
 
   /**
@@ -45,7 +42,7 @@ export default class LoginValidator {
   public messages = {
     'pseudo.string': 'Le pseudo doit être une chaîne de caractères',
     'pseudo.required': 'Le pseudo est requis',
-    'pseudo.exists': "Le pseudo n`'existe pas",
+    'pseudo.exists': "Le pseudo n'existe pas",
     'password.string': 'Le mot de passe doit être une chaîne de caractères',
     'password.required': 'Le mot de passe est requis',
   }

@@ -10,14 +10,14 @@
   <form action="{{ route('LoginController.store') }}" method="post">
     <div>
       <label for="pseudo">Votre pseudo</label>
-      <input type="text" name="pseudo" id="pseudo" value="{{ flashMessages.get('pseudo', '') }}">
+      <input type="text" name="pseudo" id="pseudo" value="{{ flashMessages.get('pseudo') ?? '' }}">
       @if(flashMessages.has('errors.pseudo'))
       <div>{{ flashMessages.get('errors.pseudo') }}</div>
       @endif
     </div>
     <div>
       <label for="password">Votre password</label>
-      <input type="text" name="password" id="password" value="{{ flashMessages.get('password', '') }}">
+      <input type="text" name="password" id="password" value="{{ flashMessages.get('password') ?? '' }}">
       @if(flashMessages.has('errors.password'))
       <div>{{ flashMessages.get('errors.password') }}</div>
       @endif
